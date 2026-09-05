@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Mercadinho</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Meu Mercadinho</h1>
+        
+        <!-- Div para as mensagens de sucesso/erro -->
+        <p id="mensagem"></p>
+        
+        <form id="formMercado">
+            <div class="form-group">
+                <input type="text" id="nome" placeholder="Nome do Produto" required>
+                <input type="number" id="quantidade" placeholder="Quantidade" min="1" required>
+                <input type="number" id="preco" placeholder="Preço Unitário (R$)" step="0.01" min="0.01" required>
+            </div>
+            <button type="submit">Cadastrar compra</button>
+        </form>
+
+        <div class="lista-container">
+            <h3>Lista de Produtos</h3>
+            
+            <!-- Os itens (<p>) criados pelo seu JS aparecerão aqui -->
+            <div id="listaCompras"></div>
+            
+            <div class="total-container">
+                <h2 id="totalGeral">Total: R$ 0.00</h2>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
