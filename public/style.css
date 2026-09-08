@@ -1,124 +1,142 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    background-color: #f4f4f9;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
+  background-image: url(assets/bg.svg);
+  height: 100dvh;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
 .container {
-    width: 100%;
-    max-width: 600px;
-    background: white;
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-h1 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-#mensagem {
-    text-align: center;
-    font-weight: bold;
-    min-height: 20px; /* Mantém o espaço mesmo vazia */
-    margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 15px;
+  width: 100%;
+  display: flex;
+  align-items: end;
+  gap: 10px;
+  flex-direction: row;
 }
 
-input {
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
+.item {
+  display: flex;
+  flex-direction: column;
 }
 
-form button[type="submit"] {
-    width: 100%;
-    padding: 12px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background 0.3s;
+.item > button {
+  display: flex;
+  align-items: center;
+  padding: 9px;
+  border: 1px solid gainsboro;
+  border-radius: 10px;
+  color: white;
+  background-color: #28a745;
+  font-size: medium;
+  font-weight: bold;
 }
 
-form button[type="submit"]:hover {
-    background-color: #218838;
+input,
+button {
+  padding: 10px;
+  border: 1px solid gainsboro;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+input:hover {
+  cursor: pointer;
+  background-color: gainsboro;
+}
+.titulo{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+img {
+  margin-left: 0px;
+  width: 120px;
+  height: 120px;
+}
+
+h1 {
+  padding-left: 20%;
+  color: #333;
+  margin-bottom: 10px;
 }
 
 .lista-container {
-    margin-top: 30px;
+  padding: 20px;
 }
 
-h3 {
-    margin-bottom: 15px;
-    color: #444;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 5px;
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
 }
 
-/* Estilizando os <p> que o seu JS cria dinamicamente */
-#listaCompras p {
-    display: flex;
-    align-items: center;
-    background: #f8f9fa;
-    padding: 12px;
-    margin-bottom: 10px;
-    border-radius: 6px;
-    border-left: 4px solid #007bff;
-    font-size: 15px;
+td {
+  padding: 15px 10px;
+  text-align: center;
+  border-bottom: 1px solid gainsboro;
 }
 
-/* O primeiro botão (Editar) é empurrado para a direita */
-#listaCompras button:first-of-type {
-    margin-left: auto; 
-    background-color: #ffc107;
-    color: #000;
+td:first-child {
+  text-align: left;
+  width: 100%;
 }
 
-#listaCompras button:last-of-type {
-    margin-left: 8px;
-    background-color: #dc3545;
-    color: #fff;
+td:not(:first-child) {
+  white-space: nowrap;
+  width: auto;
 }
 
-#listaCompras button {
-    padding: 6px 12px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
+td:last-child {
+  text-align: right;
 }
 
-#listaCompras button:hover {
-    opacity: 0.8;
+td button {
+  padding: 8px 12px;
+  margin-left: 5px;
+  border: 1px solid gainsboro;
+  background-color: gainsboro;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.simbolos {
+  color: #28a745;
+  font-weight: bold;
+}
+
+.editar:hover {
+  background-color: #ffc157;
+  color: white;
+}
+
+.excluir:hover {
+  background-color: rgb(197, 16, 16);
+  color: white;
 }
 
 .total-container {
-    margin-top: 20px;
-    text-align: right;
-    border-top: 2px solid #eee;
-    padding-top: 15px;
-}
-
-#totalGeral {
-    color: #28a745;
+  width: 30%;
+  display: flex;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #28a745;
+  color: white;
 }
