@@ -1,10 +1,12 @@
 const form = document.getElementById("formMercado");
 const botaoSubmit = form.querySelector("button[type='submit']");
+const som = new Audio('./assets/mercado.mp3')
 
 let compraEditandoId = null;
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
+  som.play()
 
   const nome = document.getElementById("nome").value;
   const quantidade = Number(document.getElementById("quantidade").value);
@@ -28,7 +30,6 @@ form.addEventListener("submit", async (event) => {
     console.log();
     mostrarMensagem("compra cadastrado com sucesso!");
   } else {
-    // Modo edição (PUT)
     const resposta = await fetch(`/compras/${compraEditandoId}`, {
       method: "PUT",
       headers: {
@@ -49,7 +50,6 @@ form.addEventListener("submit", async (event) => {
       mostrarMensagem("compra atualizado com sucesso!");
     }
 
-    // Sai do modo edição
     compraEditandoId = null;
     botaoSubmit.textContent = "Cadastrar compra";
   }
@@ -70,22 +70,28 @@ async function carregarcompras() {
   compras.forEach((compra) => {
     const subtotal = compra.preco * compra.quantidade;
     total += subtotal;
-    const item = document.createElement("p");
+    const item = document.createElement("tr");
     console.log(total);
     item.innerHTML = `
-        ${compra.nome} - ${compra.quantidade} X ${compra.preco} = ${subtotal.toLocaleString("pt-BR", {style: "currency", currency: "BRL" } )} 
-        <button onclick="editarCompra(${compra.id}, '${compra.nome}', '${compra.quantidade}', ${compra.preco})">
-        Editar
+ <td>${compra.nome}</td>
+    <td>${compra.quantidade}</td>
+    <td class="simbolos">X</td>
+    <td>${compra.preco}</td>
+    <td class="simbolos">=</td>
+    <td class="subtotal">${subtotal.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}</td>
+    <td>
+        <button class="editar" onclick="editarCompra(${compra.id}, '${compra.nome}', '${compra.quantidade}', ${compra.preco})">
+            Editar
         </button>
-        <button onclick="excluirCompra(${compra.id})">
-        Excluir
+        <button  class="excluir" onclick="excluirCompra(${compra.id})">
+            Excluir
         </button>
+    </td>
         `;
 
     lista.appendChild(item);
   });
-    document.getElementById("totalGeral").textContent = `Total: R$ ${total}`;
-
+  document.getElementById("totalGeral").textContent = `Total:  ${total.toLocaleString("pt-BR", {style: "currency", currency: "BRL" } )}`;
 }
 
 carregarcompras();
@@ -98,7 +104,7 @@ async function excluirCompra(id) {
   const resultado = await resposta.json();
   console.log(resultado);
 
-  mostrarMensagem("COmpra removido com sucesso!");
+  mostrarMensagem("Compra removido com sucesso!");
   carregarcompras();
 }
 
