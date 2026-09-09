@@ -1,16 +1,27 @@
 const form = document.getElementById("formMercado");
 const botaoSubmit = form.querySelector("button[type='submit']");
-const som = new Audio('./assets/mercado.mp3')
+const som = new Audio("./assets/mercado.mp3");
 
 let compraEditandoId = null;
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
-  som.play()
+  som.play();
 
-  const nome = document.getElementById("nome").value;
+  const nome = document.getElementById("nome").value.trim();
   const quantidade = Number(document.getElementById("quantidade").value);
   const preco = Number(document.getElementById("preco").value);
+  const nomeSemEspacos = nome.replace(/\s+/g, "");
+
+  if (nome === "" || !isNaN(nomeSemEspacos)) {
+    mostrarMensagem("O nome do produto não pode ser apenas números.", true);
+    return;
+  }
+
+  if (!/^[a-zA-ZÀ-ÿ0-9\s]+$/.test(nome)) {
+    mostrarMensagem("O nome do produto não pode conter símbolos.", true);
+    return;
+  }
 
   if (compraEditandoId === null) {
     // Modo cadastro (POST)
@@ -73,7 +84,7 @@ async function carregarcompras() {
     const item = document.createElement("tr");
     console.log(total);
     item.innerHTML = `
- <td>${compra.nome}</td>
+    <td>${compra.nome}</td>
     <td>${compra.quantidade}</td>
     <td class="simbolos">X</td>
     <td>${compra.preco}</td>
@@ -91,7 +102,8 @@ async function carregarcompras() {
 
     lista.appendChild(item);
   });
-  document.getElementById("totalGeral").textContent = `Total:  ${total.toLocaleString("pt-BR", {style: "currency", currency: "BRL" } )}`;
+  document.getElementById("totalGeral").textContent =
+    `Total:  ${total.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}`;
 }
 
 carregarcompras();
