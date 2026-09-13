@@ -1,0 +1,142 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-image: url(assets/bg.svg);
+  height: 100dvh;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  width: 100%;
+  display: flex;
+  align-items: end;
+  gap: 10px;
+  flex-direction: row;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+}
+
+.item > button {
+  display: flex;
+  align-items: center;
+  padding: 9px;
+  border: 1px solid gainsboro;
+  border-radius: 10px;
+  color: white;
+  background-color: #28a745;
+  font-size: medium;
+  font-weight: bold;
+}
+
+input,
+button {
+  padding: 10px;
+  border: 1px solid gainsboro;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+input:hover {
+  cursor: pointer;
+  background-color: gainsboro;
+}
+.titulo{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+img {
+  margin-left: 0px;
+  width: 120px;
+  height: 120px;
+}
+
+h1 {
+  padding-left: 20%;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.lista-container {
+  padding: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+td {
+  padding: 15px 10px;
+  text-align: center;
+  border-bottom: 1px solid gainsboro;
+}
+
+td:first-child {
+  text-align: left;
+  width: 100%;
+}
+
+td:not(:first-child) {
+  white-space: nowrap;
+  width: auto;
+}
+
+td:last-child {
+  text-align: right;
+}
+
+td button {
+  padding: 8px 12px;
+  margin-left: 5px;
+  border: 1px solid gainsboro;
+  background-color: gainsboro;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.simbolos {
+  color: #28a745;
+  font-weight: bold;
+}
+
+.editar:hover {
+  background-color: #ffc157;
+  color: white;
+}
+
+.excluir:hover {
+  background-color: rgb(197, 16, 16);
+  color: white;
+}
+
+.total-container {
+  width: 30%;
+  display: flex;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #28a745;
+  color: white;
+}
