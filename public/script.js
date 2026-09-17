@@ -36,11 +36,15 @@ form.addEventListener("submit", async (event) => {
         preco: preco,
       }),
     });
-
-    const compra = await resposta.json();
-    console.log();
-    mostrarMensagem("compra cadastrado com sucesso!");
-  } else {
+        
+      const compra = await resposta.json();
+      
+      if(!resposta.ok){
+        mostrarMensagem(compra.mensagem || "Erro ao cadastrar compra.", true);
+        return;
+      }
+      mostrarMensagem("Compra cadastrada com sucesso!");}
+else {
     const resposta = await fetch(`/compras/${compraEditandoId}`, {
       method: "PUT",
       headers: {

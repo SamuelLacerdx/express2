@@ -25,13 +25,20 @@ app.get("/compras", (req, res) => {
 });
 
 app.post("/compras", (req, res) => {
+  const { nome, quantidade, preco } = req.body;
   const novaCompra = {
     id: Date.now(),
     nome: req.body.nome,
-    quantidade: Number (req.body.quantidade),
-    preco: Number (req.body.preco),
+    quantidade: Number(req.body.quantidade),
+    preco: Number(req.body.preco),
   };
-
+  
+    if (nome === "sandero rebaixado") {
+      return res.status(404).json({
+        mensagem: "Nome de produto não permitido.",
+      });
+    }
+  
   compras.push(novaCompra);
 
   res.status(201).json(novaCompra);
