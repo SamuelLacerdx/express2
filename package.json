@@ -1,10 +1,12 @@
 {
+  "homepage": "https://samuellacerdx.github.io/express2/",
   "name": "express2",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "deploy": "gh-pages -d public"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +16,7 @@
     "express": "^5.2.1"
   },
   "devDependencies": {
+    "gh-pages": "^6.3.0",
     "nodemon": "^3.1.14"
   }
 }
